@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Sharni">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/users-styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.css">
+
+  <title>Users</title>
+</head>
+
+<body class="common-container">
+
+  <div class="navigation-bar">
+    <%- include('navbar.ejs') %>
+  </div>
+  <% if(error_message=="ERROR" ) { %>
+    <div class="err-msg">
+      <p class="text-center fs-2">An error occured while loading users.</p>
+    </div>
+    <% } else { %>
+      <div class="row admin-users-title mt-5 pt-3">
+        <p class="text-center text-white fs-2"><i class="fas fa-user-crown me-2"></i> Admin</p>
+      </div>
+      <div class="admin-users-table">
+        <% if(admin_users.length==0) { %>
+          <p class="my-2 text-center fs-5">No admin level users found.</p>
+          <% } else { %>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col"><i class="fas fa-file-signature"></i> Name</th>
+                  <th scope="col"><i class="fas fa-envelope"></i> Email</th>
+                  <th scope="col"><i class="fas fa-unlock"></i> Access</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% admin_users.forEach(au=> { %>
+                  <tr>
+                    <th scope="row">
+                      <%= au.name %>
+                    </th>
+                    <td>
+                      <%= au.email %>
+                    </td>
+                    <td>
+                      <%= au.access %>
+                    </td>
+                  </tr>
+                  <% }); %>
+              </tbody>
+            </table>
+            <% } %>
+      </div>
+
+      <div class="row basic-users-title mt-5">
+        <p class="text-center text-white fs-2"><i class="fas fa-user me-2"></i> Basic</p>
+      </div>
+      <div class="basic-users-table">
+        <% if(basic_users.length==0) { %>
+          <p class="my-2 text-center fs-5">No basic level users found.</p>
+          <% } else { %>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col"><i class="fas fa-file-signature"></i> Name</th>
+                  <th scope="col"><i class="fas fa-envelope-open-text"></i> Email</th>
+                  <th scope="col"><i class="fas fa-lock"></i> Access</th>
+                  <% if(access=="admin" ) { %>
+                    <th scope="col">Upgrade To Admin</th>
+                  <% } %>
+                </tr>
+              </thead>
+              <tbody>
+                <% basic_users.forEach(bu=> { %>
+                  <tr>
+                    <th scope="row">
+                      <%= bu.name %>
+                    </th>
+                    <td>
+                      <%= bu.email %>
+                    </td>
+                    <td>
+                      <%= bu.access %>
+                    </td>
+                    <% if(access=="admin" ) { %>
+                      <td><input class="form-check-input mx-auto mb-3 cb" type="checkbox" id="<%= bu._id %>"></td>
+                      <% } %>
+                  </tr>
+                  <% }); %>
+              </tbody>
+            </table>
+            <% if (access == "admin") { %>
+            <div class="text-center">
+              <button id="upgrade-user-btn" class="btn btn-dark btn-lg mx-3 mt-3 text-center">Upgrade</button>
+            </div>
+            <% } %>
+            <% } %>
+      </div>
+      <div class="upg-err">
+      </div>
+      <% } %>
+
+  <!-- Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.js"></script>
+  <!-- Custom Script -->
+  <script src="/js/users-app.js"></script>
+
+</body>
+
+</html>

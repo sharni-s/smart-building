@@ -1,0 +1,70 @@
+body {
+  background-image: linear-gradient(rgba(5, 5, 5, 0.822), rgba(0, 0, 0, 0.609)),
+    url("https://bootstrapmade.com/demo/templates/Plato/assets/img/hero-bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center top;
+  background-blend-mode: multiply;
+}
+
+/* Start of Welcome Container */
+.welcome-container {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.title {
+  color: rgba(255, 255, 255, 0.911);
+  font-size: 3rem;
+  text-align: center;
+}
+
+.title-content {
+  color: white;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.welcome-register {
+  text-align: end;
+}
+
+.welcome-login {
+  text-align: start;
+}
+/* End of Welcome Container */
+
+/* Start of Register Container */
+.register-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: white;
+  opacity: 0.92;
+  padding-top: 1.8rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 1.5rem;
+  width: 25rem;
+}
+/* End of Register Container */
+
+/* Start of Login Container */
+.login-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: white;
+  opacity: 0.92;
+  padding-top: 1.8rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 1.5rem;
+  width: 25rem;
+}
+/* End of Login Container */

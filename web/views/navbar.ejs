@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-sm navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href><i class="fas fa-user-alt"></i><span class="ps-3"><%= name %></span></a>
+        <button class="navbar-toggler " type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav mx-auto mb-2 mb-sm-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="/home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/users">Users</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/devices">Devices</a>
+                </li>
+            </ul>
+            <form class="d-flex" action="/logout" method="GET">
+                <button class="btn btn-light py-1 px-3 logout-btn btn-border-none" type="submit">Logout</button>
+            </form>
+        </div>
+    </div>
+</nav>

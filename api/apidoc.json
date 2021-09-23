@@ -1,0 +1,7 @@
+{
+    "name": "Smart Building",
+    "version": "1.0.0",
+    "description": "API Endpoints for Smart lighting and air conditioning",
+    "title": "Smart Building API",
+    "url": "http://localhost:5000"
+  }
