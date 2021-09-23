@@ -67,6 +67,11 @@ passport.use(
 const saltRounds = 10;
 
 // Use helmet middleware to set http headers
+app.use(
+  helmet({
+    contentSecurityPolicy: false,
+  })
+);
 // app.use(
 //   helmet({
 //     contentSecurityPolicy: {
@@ -78,6 +83,7 @@ const saltRounds = 10;
 //           "cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js",
 //           "code.jquery.com/jquery-3.6.0.min.js",
 //           "https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.js",
+//           "*"
 //         ],
 //         "connect-src": ["'self'", "*"],
 //         "img-src": ["*", "unsafe-inline", "unsafe-eval", "data:"],
