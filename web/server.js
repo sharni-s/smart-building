@@ -1,6 +1,9 @@
-const port = 3000;
-const API_URL = "http://localhost:5000/api";
-const MQTT_API = "http://localhost:5001/mqtt-api";
+const port = process.env.PORT || 3000;
+
+// API SERVER IS DEPLOYED ON AWS EC2 WITH A DOCKER CONTAINER
+const API_URL = "http://54.174.118.71:5000/api";
+// MQTT SERVER IS HOSTED ON HEROKU
+const MQTT_API = "https://infinity-and-beyond.herokuapp.com/mqtt-api";
 
 const express = require("express");
 const session = require("express-session");
@@ -72,25 +75,6 @@ app.use(
     contentSecurityPolicy: false,
   })
 );
-// app.use(
-//   helmet({
-//     contentSecurityPolicy: {
-//       useDefaults: true,
-//       directives: {
-//         "script-src": [
-//           "unsafe-hashes",
-//           "'self'",
-//           "cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js",
-//           "code.jquery.com/jquery-3.6.0.min.js",
-//           "https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.js",
-//           "*"
-//         ],
-//         "connect-src": ["'self'", "*"],
-//         "img-src": ["*", "unsafe-inline", "unsafe-eval", "data:"],
-//       },
-//     },
-//   })
-// );
 
 // For rendering ejs files
 app.set("view engine", "ejs");

@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/api";
+const API_URL = "http://54.174.118.71:5000/api";
 
 const actuators = ["light", "aircon"];
 const sensors = ["tempSensor", "ambientSensor", "motionSensor"];
