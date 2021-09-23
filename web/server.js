@@ -1,7 +1,7 @@
 const port = process.env.PORT || 3000;
 
-// API SERVER IS DEPLOYED ON AWS EC2 WITH A DOCKER CONTAINER
-const API_URL = "http://54.174.118.71:5000/api";
+// API SERVER IS DEPLOYED ON AWS EC2 IN A DOCKER CONTAINER
+const API_URL = "http://65.2.6.154:5000/api";
 // MQTT SERVER IS HOSTED ON HEROKU
 const MQTT_API = "https://infinity-and-beyond.herokuapp.com/mqtt-api";
 
